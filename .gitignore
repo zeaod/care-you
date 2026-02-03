@@ -40,4 +40,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/public/Medinova-1.0.0/*
+/public/Medinova-1.0.0
