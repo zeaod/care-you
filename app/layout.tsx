@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import 'bootstrap/dist/css/bootstrap.min.css'
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import BootstrapProvider from "@/components/BootstrapProvider";
+ 
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +18,34 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+
+      <head>
+        {/* Google Fonts */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+
+        {/* Font Awesome 5.15.0 */}
+        <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+          rel="stylesheet"
+        />
+
+        {/* Bootstrap Icons */}
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+          rel="stylesheet"
+        />
+      </head>
+
+      <body>
+        <BootstrapProvider>
+          <Header />
+          {children}
+          <Footer />
+        </BootstrapProvider>
       </body>
     </html>
   );
